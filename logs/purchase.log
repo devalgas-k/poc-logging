@@ -1,0 +1,7 @@
+2025-02-05 03:43:45 [http-nio-8082-exec-1] INFO  c.d.poc_logging.rest.LoggingRest - [PURCHASE] Nouvel achat - Produit: SGGS, Utilisateur: SSS
+2025-02-05 03:44:48 [http-nio-8082-exec-1] INFO  c.d.poc_logging.rest.LoggingRest - [PURCHASE] Nouvel achat - Produit: SGGS, Utilisateur: SSS
+2025-02-05 03:44:51 [http-nio-8082-exec-3] INFO  c.d.poc_logging.rest.LoggingRest - [PURCHASE] Nouvel achat - Produit: SGGS, Utilisateur: SSS
+2025-02-05 03:44:52 [http-nio-8082-exec-4] INFO  c.d.poc_logging.rest.LoggingRest - [PURCHASE] Nouvel achat - Produit: SGGS, Utilisateur: SSS
+2025-02-05 03:44:54 [http-nio-8082-exec-5] INFO  c.d.poc_logging.rest.LoggingRest - [PURCHASE] Nouvel achat - Produit: SGGS, Utilisateur: SSS
+2025-02-05 03:45:35 [http-nio-8082-exec-1] TRACE c.d.poc_logging.rest.LoggingRest - [PURCHASE] Nouvel achat - Produit: SGGS, Utilisateur: SSS
+2025-02-05 03:45:38 [http-nio-8082-exec-3] TRACE c.d.poc_logging.rest.LoggingRest - [PURCHASE] Nouvel achat - Produit: SGGS, Utilisateur: SSS
