@@ -26,17 +26,46 @@
         <maxHistory>30</maxHistory>
     </rollingPolicy>
     <encoder>
-        <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - [PURCHASE] %msg%n</pattern>
+        <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} -%X{traceId}  - [PURCHASE] %msg%n</pattern>
     </encoder>
 </appender>
+
+<!-- Appender spécifique pour les invoices -->
+<appender name="INVOICES" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>logs/invoices.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        <fileNamePattern>logs/invoices-%d{yyyy-MM-dd}.log</fileNamePattern>
+        <maxHistory>30</maxHistory>
+    </rollingPolicy>
+    <encoder>
+        <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} -%X{traceId}  - [PURCHASE] %msg%n</pattern>
+    </encoder>
+</appender>
+
+<!-- Appender asynchrone pour les invoices -->
+<appender name="ASYNC_INVOICES" class="ch.qos.logback.classic.AsyncAppender">
+    <appender-ref ref="INVOICES"/>
+    <queueSize>512</queueSize>
+    <discardingThreshold>0</discardingThreshold>
+    <includeCallerData>false</includeCallerData>
+    <neverBlock>true</neverBlock>
+</appender>
+
 
 <!-- Logger pour le package des achats -->
 <logger name="com.devalgas.poc_logging.rest" level="TRACE" additivity="false">
     <appender-ref ref="PURCHASE"/>
 </logger>
 
+<!-- Logger pour le package des invoices -->
+<logger name="com.devalgas.poc_logging.service" level="INFO" additivity="false">
+    <appender-ref ref="ASYNC_INVOICES"/>
+</logger>
+
+
 <!-- Logger général -->
 <root level="INFO">
+    <appender-ref ref="CONSOLE"/>
     <appender-ref ref="FILE"/>
 </root>
 </configuration>
